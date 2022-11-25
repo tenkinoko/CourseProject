@@ -8,14 +8,16 @@ import metapy
 username = "jiaweiy3@illinois.edu"
 password = "cs410project"
 
+
 class WebCrawler:
+
+    def __init__(self):
+        desired_cap = {}
+        self.browser = webdriver.Edge('msedgedriver', capabilities=desired_cap)
 
     def set_up(self):
         # browser = webdriver.Edge() 
         # comment the below two lines and uncomment the above if not using Mac
-        desired_cap={}
-        self.browser = webdriver.Edge('msedgedriver', capabilities=desired_cap)
-        
         self.browser.get("https://campuswire.com/signin")
         email = self.browser.find_element(By.XPATH, '//*[@id="wrapper"]/div/div[2]/form/div/input[1]')
         pwd = self.browser.find_element(By.XPATH, '//*[@id="wrapper"]/div/div[2]/form/div/input[2]')
@@ -24,7 +26,6 @@ class WebCrawler:
         email.send_keys(username)
         pwd.send_keys(password)
         loginBtn.click()
-
 
     def scrap_page(self):
         WebDriverWait(self.browser, 10).until(expected_conditions.presence_of_element_located(
