@@ -2,10 +2,11 @@ import numpy as np
 import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from mysutils.text import remove_urls
-from nltk.stem import SnowballStemmer, WordNetLemmatizer
+# from mysutils.text import remove_urls
+from nltk.stem import SnowballStemmer
 # from string import punctuation
 import re
+from rank import Ranker
 
 stop_words = set(stopwords.words('english'))
 data_path = "cw.txt"
@@ -18,7 +19,9 @@ def read_data(filepath):
     post_file = open(filepath, "r+")
     post = post_file.readlines()
     for i in range(len(post)):
-        post[i] = remove_urls(post[i]).rstrip('\n')
+        # not working for my env, comment out for now
+        # post[i] = remove_urls(post[i]).rstrip('\n') 
+        post[i] = re.sub(r"http\S+", "", post[i]).rstrip('\n')
     post = np.array(post).reshape(-1, 4)
     return post
 
@@ -46,4 +49,11 @@ def data_split(data):
 if __name__ == "__main__":
     post_data = read_data(data_path)
     labeled_data, unlabeled_data = data_split(post_data)
-    print(unlabeled_data)
+    ranker = Ranker(unlabeled_data)
+    ranker.index()
+    # for i in ranker.inverted_index:
+    #     print(i)
+    #     print(ranker.inverted_index[i])
+    query = "classifier"
+    query = clean_data(query)
+    ranker.computeScore(query)

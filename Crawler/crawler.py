@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.common.exceptions import NoSuchElementException
-import metapy
 
 
 username = "jiaweiy3@illinois.edu"
@@ -68,30 +67,11 @@ class WebCrawler:
     def close(self):
         self.browser.quit()
 
-    # def build_inverted_index(self):
-    #     self.inverted_index = {}
-    #     tok = metapy.analyzers.ICUTokenizer(suppress_tags=True)
-    #     tok = metapy.analyzers.LowercaseFilter(tok)
-    #     tok = metapy.analyzers.ListFilter(tok, "stopwords.txt", metapy.analyzers.ListFilter.Type.Reject)
-    #     tokenized_qs = []
-    #     with open("cw.txt", "r", encoding='utf-8') as file:
-    #         lines = file.readlines()
-    #         for line in lines:
-    #             tok.set_content(line.strip())
-    #             tokenized_qs.append([t for t in tok])
-    #     for qs in tokenized_qs:
-    #         for word in qs:
-    #             if word not in self.inverted_index:
-    #                 self.inverted_index[word] = [qs[1]]
-    #             else:
-    #                 self.inverted_index[word].append(qs[1])
-        
 
 if __name__ == '__main__':
     crawler = WebCrawler()
     crawler.set_up()
     crawler.scrap_page()
     crawler.close()
-    # crawler.build_inverted_index()
 
 
