@@ -69,7 +69,7 @@ class Ranker:
         if word in self.inverted_index:
             return len(self.inverted_index[word]['postings'])
         else:
-            raise 0
+            return 0
 
     # compute score of each post given the query
     def computeScore(self, query):
