@@ -3,6 +3,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 import re
+import math
 
 stop_words = set(stopwords.words('english'))
 stemmer = SnowballStemmer('english')
@@ -80,11 +81,14 @@ class Ranker:
             for word in query:
                 term_frequency = self.get_term_frequency(word, post_id)
                 doc_length = self.doc_length[post_id]
-                idf = self.computeIDF()
+                idf = self.computeIDF(word)
                 term_score = (term_frequency * (k + 1)) / (term_frequency + k * (1 - b + b * (doc_length / self.avg_doc_length)))
                 term_score *= idf
                 score += term_score
             self.score[post_id] = score
 
-    def computeIDF(self): # TODO
-        return 1
+    # compute idf
+    def computeIDF(self, word):
+        doc_frequency = self.get_doc_frequency(word)
+        idf = math.log((len(self.unlabeled_posts) - doc_frequency + 0.5) / (doc_frequency + 0.5))
+        return idf
