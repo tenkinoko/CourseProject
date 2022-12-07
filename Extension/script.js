@@ -15,6 +15,6 @@ function getResult(keyword) {
 
 document.getElementById("search").onclick = async () => {
     console.log('clicked');
-    var input = document.getElementById("keyword");
+    var input = document.getElementById("keyword").value;
     fetchData(input);
 };
