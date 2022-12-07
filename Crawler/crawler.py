@@ -68,10 +68,10 @@ class WebCrawler:
         self.browser.quit()
 
 
-if __name__ == '__main__':
-    crawler = WebCrawler()
-    crawler.set_up()
-    crawler.scrap_page()
-    crawler.close()
+# if __name__ == '__main__':
+#     crawler = WebCrawler()
+#     crawler.set_up()
+#     crawler.scrap_page()
+#     crawler.close()
 
 
