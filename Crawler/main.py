@@ -24,7 +24,7 @@ def rank(ranker):
 
 if __name__ == '__main__':
     # step 1: crawl the page
-    # crawl() 
+    crawl() 
 
     # step 2: clean the data and categorize
     post_data = read_data(data_path)
