@@ -1,19 +1,21 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="third-party/jquery-ui.css">
-  <link rel="stylesheet" href="third-party/jquery-ui.structure.css">
-  <link rel="stylesheet" href="third-party/jquery-ui.theme.css">
-  <link rel="stylesheet" href="popup.css">
-  <script src="third-party/jquery-1.12.4.js"></script>
-  <script src="third-party/jquery-ui-1.12.1.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+    <title>Campera</title>
 </head>
-<body style="width: 400px">
-  <div>Search Bookmarks: <input id="search"></div>
-  <div id="bookmarks"></div>
-  <div id="editdialog"></div>
-  <div id="deletedialog"></div>
-  <div id="adddialog"></div>
-  <div id="test-frame"></div>
-  <script src="popup.js"></script>
+<body>
+    <div>
+        <h1>Related Campuswire Posts</h3>
+        <h2 id="highlight"> Key Word: </h3>
+        <input type="text" id="keyword">
+        <button id="search">Search</button>
+        <h3 id="posts"></h4>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>

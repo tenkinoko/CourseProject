@@ -1,14 +1,19 @@
 {
-  "name": "Campusera",
-  "description": "A annotation system for Coursera using the posts from Campuswire",
-  "version": "1.1",
-  "manifest_version": 3,
-  "permissions": [
-    "bookmarks"
-  ],
-  "action": {
-    "default_title": "Campusera",
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  }
+    "name" : "Campera",
+    "version": "1.0.0",
+    "description": "This is a extension that shows related campuswire links",
+    "manifest_version": 3,
+    "author": "Team Night Crawler",
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Related Campuswire Posts",
+        "permissions": [
+            "activeTab", 
+            "scripting",
+            "tabs"
+        ],
+        "content_security_policy": {
+            "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline'"
+        }
+    }
 }

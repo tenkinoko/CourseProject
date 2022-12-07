@@ -57,3 +57,6 @@ if __name__ == "__main__":
     query = "classifier"
     query = clean_data(query)
     ranker.computeScore(query)
+
+
+

@@ -1,3 +1,40 @@
-#editdialog input {
-  width: 100%
+html, body {
+    width: 400px;
+    height: 600px;
+    padding-left: 10px;
+}
+
+li {
+    color: #128fc8;
+    style: none;
+    list-style-type: square;
+    padding: 5px;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+    size: 3em;
+}
+h1 {
+    color: #00468b;
+}
+h2 {
+    color: #128fc8;
+}
+
+button {
+    background-color: #128fc8;
+    height: 30px;
+    border: none;
+    color: white;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+    border: none;
+    background-color: rgb(197, 226, 237);
+    padding-right: 20px;
 }
