@@ -10,7 +10,8 @@
         "permissions": [
             "activeTab", 
             "scripting",
-            "tabs"
+            "tabs",
+            "https://*/"
         ],
         "content_security_policy": {
             "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline'"

@@ -45,17 +45,3 @@ def data_split(data):
     unlabeled = data[np.where(data == 'General')[0], :]
     return labeled, unlabeled
 
-
-# if __name__ == "__main__":
-#     post_data = read_data(data_path)
-#     labeled_data, unlabeled_data = data_split(post_data)
-#     ranker = Ranker(unlabeled_data)
-#     print(unlabeled_data)
-#     ranker.index()
-#     # for i in ranker.inverted_index:
-#     #     print(i)
-#     #     print(ranker.inverted_index[i])
-#     query = "score"
-#     query = clean_data(query)
-#     ranker.computeScore(query)
-#     print(ranker.score)
