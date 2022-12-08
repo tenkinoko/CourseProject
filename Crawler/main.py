@@ -37,9 +37,6 @@ def main(keyword):
     # ranker = Ranker(unlabeled_data)
     ranker = Ranker(post_data)
     ranker.index()
-    for i in ranker.inverted_index:
-        print(i)
-        print(ranker.inverted_index[i])
     keyword = clean_data(keyword)
     ranker.computeScore(keyword)
 
