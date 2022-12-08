@@ -37,6 +37,9 @@ def main(keyword):
     # ranker = Ranker(unlabeled_data)
     ranker = Ranker(post_data)
     ranker.index()
+    for i in ranker.inverted_index:
+        print(i)
+        print(ranker.inverted_index[i])
     keyword = clean_data(keyword)
     ranker.computeScore(keyword)
 
@@ -49,6 +52,7 @@ def main(keyword):
         object = {}
         object["id"] = post_id
         object["title"] = post_store[post_id]["post_title"]
+        object["content"] = post_store[post_id]["post_content"]
         data.append(object)
     json_data["data"] = data
     return json.dumps(json_data)

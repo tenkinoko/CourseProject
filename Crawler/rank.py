@@ -36,7 +36,7 @@ class Ranker:
             post_id = post[0]
             self.doc_length[post_id] = len(post[3])
             doc_length_sum += len(post[3])
-            clean_post = clean_data(post[3]) 
+            clean_post = clean_data(post[2]) + clean_data(post[3])
 
             for word in clean_post:
                 if word not in self.inverted_index:
@@ -73,7 +73,7 @@ class Ranker:
 
     # compute score of each post given the query
     def computeScore(self, query):
-        k = 1.25
+        k = 1.5
         b = 0.75
         for post in self.unlabeled_posts:
             score = 0
