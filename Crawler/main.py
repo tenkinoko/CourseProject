@@ -17,8 +17,9 @@ def crawl():
     crawler.scrap_page()
     crawler.close()
 
-@app.route("/")
+@app.before_first_request
 def init():
+    print("init")
     # step 1: crawl the page upon visiting the url
     crawl() 
     return "Posts are crawled. Add query parameter in the url to search post by keyword."
