@@ -19,8 +19,7 @@ def crawl():
 
 @app.before_first_request
 def init():
-    print("init")
-    # step 1: crawl the page upon visiting the url
+    # step 1: crawl the page upon using the api for the first time
     crawl() 
     return "Posts are crawled. Add query parameter in the url to search post by keyword."
 
