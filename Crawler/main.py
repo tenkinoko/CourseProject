@@ -17,11 +17,14 @@ def crawl():
     crawler.scrap_page()
     crawler.close()
 
+@app.route("/")
+def init():
+    # step 1: crawl the page upon visiting the url
+    crawl() 
+    return "Posts are crawled. Add query parameter in the url to search post by keyword."
+
 @app.route("/<keyword>")
 def main(keyword):
-    # step 1: crawl the page
-    crawl() 
-
     # step 2: clean the data and categorize
     post_data = read_data(data_path)
     labeled_data, unlabeled_data = data_split(post_data)
