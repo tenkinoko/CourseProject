@@ -2,7 +2,8 @@ const serverURL = "http://127.0.0.1:5000/";
 
 async function fetchData(input) {
     var posts = getResult(input);
-    document.getElementById("posts").innerHTML = posts.data.map(item=>`<li><a href=${item.link} target="_blank">${item.title}</a></li>`).join('');
+    var linkbase = "https://campuswire.com/c/G984118D3/feed/";
+    document.getElementById("posts").innerHTML = posts.data.map(item=>`<li><a href=linkbase + ${item.id} target="_blank">${item.title}</a></li>`).join('');
 
 }
 
